@@ -1,0 +1,31 @@
+table{
+  table-layout: fixed;
+  width: 450px;
+  margin: auto
+}
+th{
+  font-size:2em;
+  padding:20px;
+}
+td{
+  text-align:center;
+  font-size: 1em;
+  padding:40px;
+}
+
+@media screen and (max-width: 1024px){
+  table{
+    table-layout: fixed;
+    width: 100%;
+    margin: auto
+  }
+  th{
+    font-size:6em;
+    padding:20px;
+  }
+  td{
+    text-align:center;
+    font-size: 3em;
+    padding:40px;
+  }
+}

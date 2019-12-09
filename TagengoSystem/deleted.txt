@@ -1,0 +1,23 @@
+削除された案内で利用されていた画像ファイル名(2019/11/07/16:00~)
+image    :20191107065823760133086.JPG
+top_icon :201911070701091618409222.png
+image    :20191107070035389651765.jpeg
+image    :20191106050733726847402.jpg
+foodmenu :borugarice.jpg
+foodmenu :junkei.jpg
+foodmenu :zarusoba.jpg
+foodmenu :sourcekatu.jpg
+foodmenu :syouyukatu.jpg
+foodmenu :tonchan.jpg
+foodmenu :20191101021611279028069.jpeg
+foodmenu :201911010217041967977649.jpeg
+foodmenu :201911010220232021361734.jpeg
+foodmenu :201911090443501055216902.jpg
+image    :
+foodmenu :
+foodmenu :
+foodmenu :20191209044736281984562.png
+image    :20191209050017217488492.png
+image    :201912090240311384060972.png
+top_icon :
+image    :

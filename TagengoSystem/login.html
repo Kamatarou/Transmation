@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>ログイン画面</title>
+	</head>
+	<body style="text-align: center;">
+		<h2>ログイン画面</h2>
+		<br>
+		<img src="picture/logo.png" style="float:both" width="35%" height="auto">
+		<br>
+		<br>
+		初めての方は会員登録を行ってください。<br>
+		会員登録は<a href = "entry1.php">こちら</a>をクリック<br><br>
+		
+		<form action="management.php" method = "POST">
+			<table border = "1" style="width: 300px; margin: auto;">
+				<tr>
+					<th>ユーザーID</th>
+					<td><input size = "23" type = "text" name = "user_ID"></td>
+				</tr>
+				
+				<tr>
+					<th>パスワード</th>
+					<td><input size = "23" type = "password" name = "pass"></td>
+				</tr>
+			</table>
+			<br>
+			<input type = "submit" value = "ログイン">
+		</form>
+	</body>
+</html>
