@@ -34,8 +34,8 @@ $style = $_POST['style'];
         </tr>
         <tr height = "128">
             <td style = "text-align:center;">
-                <textarea name="text" cols="71" rows="11">ここに案内内容を入力してください
-                例)この店でクレジットカードを使用することはできません</textarea>
+                <textarea name="text" cols="71" rows="11" placeholder="ここに案内内容を入力してください
+                例)この店でクレジットカードを使用することはできません"></textarea>
             </td>
         </tr>
     </table>

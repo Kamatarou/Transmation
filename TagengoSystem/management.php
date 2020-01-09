@@ -101,7 +101,7 @@ if($disp_flg == 0){
     //リンク先を決める配列
     $link = ['0' , 'menu_detail.php' , 'preview.php' , 'preview.php' , 'newSwipe.php' , 'image_annai.php'];
 
-    $sql2 = "SELECT * FROM `error_collect` WHERE (`user_no`,`description_no`,`style`,`language`,`menu_no`) IN (SELECT `user_no`,`description_no`,`style`,`language`,`menu_no` FROM `error_collect`GROUP BY `user_no`,`description_no`,`style`,`language`,`menu_no` HAVING COUNT(*) >= 1) ORDER BY `date` ASC;";
+    $sql2 = "SELECT * FROM `error_collect` WHERE (`user_no`,`description_no`,`style`,`language`,`menu_no`) IN (SELECT `user_no`,`description_no`,`style`,`language`,`menu_no` FROM `error_collect` WHERE `user_no` = $user_no GROUP BY `user_no`,`description_no`,`style`,`language`,`menu_no` HAVING COUNT(*) >= 1) ORDER BY `date` ASC;";
     $stmt2 = $pdo -> query($sql2);
     $count = $stmt2 -> rowCount();	//何件あるか数える
 ?>
@@ -157,8 +157,14 @@ if($disp_flg == 0){
       <input type="hidden" name="user_no" value="<?= $user_no ?>">
       <td><a href="javascript:form5.submit()" class="btn-orange">プレビュー</a></td>
       </form>
-      <form action="http://fukuiohr2.sakura.ne.jp/2019/TagengoSystem/qr_img0.50j/php/qr_img.php?d=https://fukuiohr2.sakura.ne.jp/2019/TagengoSystem/disp.php?shop=<?= $user_no ?>" name="form6" method="POST">
-      <td><a href="javascript:form6.submit()" class="btn-pink">QRコード発行</a></td>
+      <form action="disp.php?shop=<?= $user_no ?>" name="form6" method="POST">
+      <input type="hidden" name="user_no" value="<?= $user_no ?>">
+      <td><a href="javascript:form6.submit()" class="btn-orange">利用者向け入口</a></td>
+      </form>
+    </tr>
+    <tr>
+      <form action="http://fukuiohr2.sakura.ne.jp/2019/TagengoSystem/qr_img0.50j/php/qr_img.php?d=https://fukuiohr2.sakura.ne.jp/2019/TagengoSystem/disp.php?shop=<?= $user_no ?>" name="form7" method="POST">
+      <td colspan="2"><a href="javascript:form7.submit()" class="btn-pink" style="width: 95.5%;">QRコード発行</a></td>
       </form>
     </tr>      
   </table>
@@ -184,7 +190,7 @@ if($disp_flg == 0){
         if($count == 0){
         ?>
           <tr>
-            <td colspan="3">まだ報告や指摘があったページはありません。</td>
+            <td colspan="4">まだ報告や指摘があったページはありません。</td>
           </tr>
         <?php
         }else{

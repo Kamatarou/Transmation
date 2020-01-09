@@ -86,11 +86,11 @@ if($_SESSION['manage_flg'] == true){
   //管理者モードの時は全言語表示する
 
   //日本語だけ特別
-  $sql = "SELECT * FROM `food_menu` WHERE user_no = '$user_no' AND menu_no = '$menu_no' AND language = 'ja';";
+  $sql = "SELECT * FROM `food_menu` WHERE `user_no` = '$user_no' AND `description_no` = '$description_no' AND `menu_no` = '$menu_no' AND `language` = 'ja';";
   $stmt = $pdo -> query($sql);
   $jaresult = $stmt -> fetch(PDO::FETCH_ASSOC);
 
-  $sql = "SELECT * FROM `food_menu` WHERE user_no = '$user_no' AND menu_no = '$menu_no';";
+  $sql = "SELECT * FROM `food_menu` WHERE `user_no` = '$user_no' AND `description_no` = '$description_no' AND menu_no = '$menu_no';";
   $stmt = $pdo -> query($sql);
   $stmtcopy = $pdo -> query($sql);
   $count = $stmt -> rowCount();
@@ -174,6 +174,20 @@ if($_SESSION['manage_flg'] == true){
         <table class="display">
           <tr>
             <td style="text-align: center;">
+              <form action="foodmenu_edit.php" method="POST">
+                <input type="hidden" name="user_no" value="<?= $user_no ?>">
+                <input type="hidden" name="description_no" value="<?= $description_no ?>">
+                <input type="hidden" name="menu_no" value="<?= $menu_no ?>">
+                <input type="hidden" name="language" value="ja">
+                <input type="hidden" name="menu_name" value="<?= $jaresult['menu_name'] ?>">
+                <input type="hidden" name="pic_URL" value="<?= $jaresult['pic_URL'] ?>">
+                <input type="hidden" name="allergy" value="<?= $jaresult['allergy'] ?>">
+                <input type="hidden" name="detail" value="<?= $jaresult['detail'] ?>">
+                <input type="hidden" name="price" value="<?= $jaresult['price'] ?>">
+                <input type="submit" style="font-size: 1em;" value="この項目を編集">
+              </form>
+            </td>
+            <td style="text-align: center;">
               <form action="menu.php" method="POST">
                 <input type="hidden" name="user_no" value="<?= $user_no ?>">
                 <input type="hidden" name="description_no" value="<?= $description_no ?>">
@@ -221,6 +235,20 @@ if($_SESSION['manage_flg'] == true){
         <br>
         <table border="0" class="display">
           <tr>
+            <td style="text-align: center;">
+              <form action="foodmenu_edit.php" method="POST">
+                <input type="hidden" name="user_no" value="<?= $user_no ?>">
+                <input type="hidden" name="description_no" value="<?= $description_no ?>">
+                <input type="hidden" name="menu_no" value="<?= $menu_no ?>">
+                <input type="hidden" name="language" value="<?= $language ?>">
+                <input type="hidden" name="menu_name" value="<?= $result['menu_name'] ?>">
+                <input type="hidden" name="pic_URL" value="<?= $result['pic_URL'] ?>">
+                <input type="hidden" name="allergy" value="<?= $result['allergy'] ?>">
+                <input type="hidden" name="detail" value="<?= $result['detail'] ?>">
+                <input type="hidden" name="price" value="<?= $result['price'] ?>">
+                <input type="submit" style="font-size: 1em;" value="この項目を編集">
+              </form>
+            </td>
             <td style="text-align: center;">
               <form action="foodmenu_retranslate.php" method="POST">
                 <input type="hidden" name="user_no" value="<?= $user_no ?>">

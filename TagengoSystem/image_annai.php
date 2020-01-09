@@ -34,6 +34,7 @@ $back = array(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="image_annai.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -45,18 +46,19 @@ $back = array(
 </tr>
 <tr>
   <td>
+  <div>
+  <canvas id="imgCanvas" style="z-index: 1;"></canvas>
   <?php
   for($i = 0; $i < $rows; $i++){
     $result = $stmt -> fetch(PDO::FETCH_ASSOC);
     if($i==0){
       ?>
-      <img id="img_source" src="http://fukuiohr2.sakura.ne.jp/2019/TagengoSystem/image/<?=$result['img_url']?>" usemap="#Map" alt="メニュー">
+      <img id="img_source" src="image/<?=$result['img_url']?>" usemap="#Map" alt="メニュー" style="z-index: 0;">
       <map name="Map">
   <?php
     }
-    
+
     ?>
-    <!-- <canvas id="imgCanvas"></canvas> -->
     <form action="<?= $link[ $result['link_style'] ] ?>" name="form" method="post">
     <input type="hidden" name="user_no" value="<?=$user_no?>">
     <input type="hidden" name="style" value="<?=$result['link_style']?>">
@@ -65,15 +67,15 @@ $back = array(
     <?php
     //1件しかリンク先がないとき、formのnameは"form[0]"にならず"form"のままなので処理を変える
     if($rows == 1){
-      ?>
+    ?>
+    <script>Draw(<?=$result['rect_rigth']?>,<?=$result['rect_top']?>,<?=$result['rect_left']?>,<?=$result['rect_botom']?>)</script>
     <area shape="rect" coords="<?=$result['rect_rigth']?>,<?=$result['rect_top']?>,<?=$result['rect_left']?>,<?=$result['rect_botom']?>" href="javascript:form.submit()">
-    <!-- <script>Draw(<?=$result['rect_rigth']?>,<?=$result['rect_top']?>,<?=$result['rect_left']?>,<?=$result['rect_botom']?>)</script> -->
     <?php
     }else{
     ?>
+    <script>Draw(<?=$result['rect_rigth']?>,<?=$result['rect_top']?>,<?=$result['rect_left']?>,<?=$result['rect_botom']?>)</script>
     <area shape="rect" coords="<?=$result['rect_rigth']?>,<?=$result['rect_top']?>,<?=$result['rect_left']?>,<?=$result['rect_botom']?>" href="javascript:form[<?= $i ?>].submit()">
-    <!-- <script>Draw(<?=$result['rect_rigth']?>,<?=$result['rect_top']?>,<?=$result['rect_left']?>,<?=$result['rect_botom']?>)</script>
-     -->
+    
     <?php
     }
     ?>
@@ -82,13 +84,14 @@ $back = array(
 }
 ?>
   </map>
+  </img>
+  </div>
   </td>
 </tr>
 <tr>
   <td style="font-size: 1em; text-align: center;">
     <form method="POST" name="form1" action="top.php">
     <input type="hidden" name="user_no" value="<?= $user_no ?>">
-    <input type="hidden" name="language" value="<?= $language ?>">
       <a href="javascript:form1.submit()">
       <?php
         if($_SESSION['manage_flg'] == true){

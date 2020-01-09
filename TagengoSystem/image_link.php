@@ -20,6 +20,7 @@ $user_no = $_POST['user_no'];
 </head>
 <body ondrop="onDrop(event);" ondragover="onDragOver(event);" >
 <div>
+<form action="link_touroku.php" method="POST" enctype="multipart/form-data">
 <?php
 if(strcmp($_POST['first_flg'] , 'true') == 0){
   //データベース接続
@@ -48,7 +49,6 @@ if(strcmp($_POST['first_flg'] , 'true') == 0){
 ?>
 <div><span id="output" style="font-size: 24px; font-weight: bold;"><?= $caption ?></span>&nbsp;&nbsp;<button type="button" class="modal-syncer" data-target="modal-content-a">タイトルの変更</button></div>
 <HR style="margin: 3em 0 ;">
-<form action="link_touroku.php" method="POST" enctype="multipart/form-data">
   <input type="hidden" id="formin" name="caption" value="<?= $caption ?>">
   <script>
     getTitle("<?= $caption ?>");

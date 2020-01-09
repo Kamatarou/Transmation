@@ -11,7 +11,7 @@
 	session_start();
 	?>
   <?php
-  var_dump($_POST);
+//   var_dump($_POST);
   $user_no = $_POST['user_no'];
   $description_no = $_POST['description_no'];
   $caption = $_POST['caption'];

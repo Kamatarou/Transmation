@@ -1,0 +1,53 @@
+*{
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#shop{
+  font-size: 24px;
+  font-weight: bold;
+  vertical-align: middle;
+  width: 800px;
+  height: 400px;
+  margin: auto;
+}
+#alert{
+  color: red;
+  font-size: 24px;
+}
+#warm{
+  color: gray;
+  font-size: 16px;
+}
+#input{
+  width: 300px;
+  height: 50px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+#inputpass{
+  width: 300px;
+  height: 50px;
+  padding : 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+#span{
+  font-size: 18px;
+}
+.tblcolor{
+ background-color: lawngreen;
+ margin: auto; 
+}
+#btn{
+  width: 20%;
+  height: 20%;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+#footer-password{
+  padding-right: 20px;
+}

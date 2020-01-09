@@ -35,7 +35,7 @@ if(is_null($input_no)){
   <table border="1" class="display">
     <tr>
       <td class="display" style="text-align:center; font-size: 48px;">
-        <b><textarea name="menu_name" cols="60" rows="4">ここにメニュー名を入力</textarea></b>
+        <b><textarea name="menu_name" cols="60" rows="4" placeholder="ここにメニュー名を入力"></textarea></b>
       </td>
     </tr>
     <tr>
@@ -65,11 +65,19 @@ if(is_null($input_no)){
   </table>
   <table border="1" class="display">
     <tr>
-      <td><textarea name="detail" cols="60" rows="8">ここに料理の説明を入力</textarea></td>
+      <td><textarea name="detail" cols="60" rows="8" placeholder="ここに料理の説明を入力"></textarea></td>
     </tr>
     <tr>
-      <td><b>価格：</b><input type="number" name="price">価格を入力してください</td>
+      <td><b>価格：</b><input type="number" name="price" placeholder="価格を入力してください"></td>
     </tr>
+  </table>
+  <table border="1" class="display">
+    <tr>
+      <td>おすすめに表示しますか？<br>
+<input type="radio" name="osusume" value="表示します">はい
+<input type="radio" name="osusume" value="表示しません">いいえ</td>
+      </tr>
+    
   </table>
   <input type="hidden" name="user_no" value="<?= $user_no ?>">
   <input type="hidden" name="description_no" value="<?= $description_no ?>">

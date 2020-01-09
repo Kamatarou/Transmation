@@ -615,8 +615,16 @@ $graybutton = array(
             <input type="hidden" name="language" value="ja">
           <?php
           }
+          if($row == 1){
           ?>
-			  <td><a href="javascript:form2[<?= $i ?>].submit()" class="btn-menu">
+			      <td><a href="javascript:form2.submit()" class="btn-menu">
+          <?
+          }else{
+          ?>
+			      <td><a href="javascript:form2[<?= $i ?>].submit()" class="btn-menu">
+          <?php
+          }
+          ?>
 			</form>
 		<?php
 

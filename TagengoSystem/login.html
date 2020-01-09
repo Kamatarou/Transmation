@@ -2,6 +2,11 @@
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8">
+		<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="./css/login.css">
 		<title>ログイン画面</title>
 	</head>
 	<body style="text-align: center;">
@@ -17,16 +22,29 @@
 			<table border = "1" style="width: 300px; margin: auto;">
 				<tr>
 					<th>ユーザーID</th>
-					<td><input size = "23" type = "text" name = "user_ID"></td>
+					<td><input size = "23" type = "text" name = "user_ID" class="login_field"></td>
 				</tr>
 				
 				<tr>
 					<th>パスワード</th>
-					<td><input size = "23" type = "password" name = "pass"></td>
+					<td><input size = "23" type = "password" id="password" name = "pass"
+						autocapitalize="off" autocomplete="off"><br>
+					<div class="input-footer">
+						<input type="checkbox" id="show-password">
+						<label for="show-password">パスワードを表示する</label>
+					</div></td>
+					
 				</tr>
 			</table>
 			<br>
-			<input type = "submit" value = "ログイン">
+			<input class="btn-flat-border" type = "submit" value = "ログイン">
 		</form>
+
+		<script src="./hideShowPassword.js"></script>
+		<script>
+			$('#show-password').change(function(){
+				$('#password').hideShowPassword($(this).prop('checked'));
+			});
+		</script>
 	</body>
 </html>

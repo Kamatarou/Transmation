@@ -1,48 +1,54 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8">
-		<title>ユーザー情報入力画面</title>
-	</head>
-	<body>
-
-	<?php
-		if(isset($_POST['shop_name']) ){
-			$shop_name = $_POST['shop_name'];
-		}
-		if(isset($_POST['user_ID']) ){
-			$user_ID = $_POST['user_ID'];
-		}
-		if(isset($_POST['pass']) ){
-			$pass = $_POST['pass'];
-		}
-	?>
-
-		<h3>ユーザ情報を登録します。</h3>
-		<form action = "entry2.php" method = "POST">
-			<table border = "0">
-				<tr>
-					<td class = "tblcolor">店名</td>
-					<td><input size = "15" type = "text" name = "shop_name" value = "<?php if(isset($_POST['shop_name']) ){ echo $user_name; } ?>">&nbsp;<font color = "#FF0000">*必須</font></td>
-				</tr>
-				
-				<tr>
-					<td class = "tblcolor">希望するユーザーID</td>
-					<td><input size = "15" type = "text" name = "user_ID" value = "<?php if(isset($_POST['user_ID']) ){ echo $user_ID; } ?>">&nbsp;<font color = "#FF0000">*必須</font></td>
-				</tr>
-
-				<tr>
-					<td class = "tblcolor">パスワード</td>
-					<td><input size = "15" type = "text" name = "pass" value = "<?php if(isset($_POST['pass']) ){ echo $pass; } ?>">&nbsp;<font color = "#FF0000">*必須</p></td>
-				</tr>
-			</table>
-		<br>必要事項を記入し「確認」ボタンをクリックしてください。<br>
-		<table border = "0">
-				<input type = "submit" value = "確認">&nbsp;&nbsp;
-			</form>
-			<form action = "entry1.php">
-				<input type ="submit" value = "クリア">
-			</form>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./css/entry1.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<title>ユーザー情報入力画面</title>
+</head>
+<body>
+	<h1>ユーザ情報を登録します</h1>
+	<form action="entry2.php" method="POST">
+	<table border="1" id="shop">
+		<tr>
+			<td class="tblcolor">店名</td>
+			<td><input type="text" name="shop_name" required maxlength="20" autocomplete="off" id="input">
+			<span id="alert">*必須</span>
+			<span id="warm">上限20文字まで</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="tblcolor">ユーザID</td>
+			<td><input type="text" name="user_ID" required maxlength="20" pattern="^[0-9-Za-z]+$" autocomplete="off" id="input">
+			<span id="alert">*必須</span>
+			<span id="warm">上限20文字まで</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="tblcolor">パスワード</td>
+			<td><input type="password" name="pass" required minlength="8" pattern="^[0-9-Za-z]+$" autocomplete="off" id="inputpass">
+			<span id="alert">*必須</span>
+			<span id="warm">最低8文字以上</span>
+			<br>
+			<div id="footer-password">
+				<input type="checkbox" id="show-password">
+				<label for="show-password">パスワードを表示する</label>
+			</div>
+			</td>
+		</tr>
 		</table>
-	</body>
+		<br>
+		<h1>必要事項を記入し「確認」ボタンを<br>クリックしてください。</h1>
+		<input type ="submit" value = "確認" id="btn">
+		&nbsp;&nbsp;
+		<input type ="reset" value = "クリア" id="btn">
+	</form>
+	
+	<script src="./hideShowPassword.min.js"></script>
+	<script>
+	$('#show-password').change(function(){
+		$('#inputpass').hideShowPassword($(this).prop('checked'));
+	});
+	</script>
+</body>
 </html>
