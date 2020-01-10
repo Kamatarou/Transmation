@@ -18,9 +18,24 @@
 		$kensu = $stmt -> rowCount();
 
 	//もしuser_name、user_ID、パスワードの中に一つでも何も入力されていないものがあれば
+	//あるいは、直接このスクリプトにアクセスした場合
 	if($shop_name == "" || $user_ID == "" || $pass == "" ){
 ?>
-	<!--	未入力項目がある場合	-->
+	<!DOCTYPE html>
+	<html>
+	<head>
+    	<meta charset="utf-8" />
+    	<title></title>
+    	<script type="text/javascript">
+      	document.location.href = "./login.html";
+    	</script>
+	</head>
+	<body>
+  		<p>転送ページです。</p>
+	</body>
+	</html>
+	<!--
+		未入力項目がある場合	
 		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 		<html>
 			<head>
@@ -59,6 +74,7 @@
 		</table>
 			</body>
 		</html>
+		-->
 <?php
 	//規定値を超える文字数の項目があった場合
 	}elseif( (mb_strlen($shop_name) > 20) || (mb_strlen($pass) > 20) || (mb_strlen($user_ID) > 20) ){
@@ -183,42 +199,40 @@
 		<html lang = "ja">
 			<head>
 				<meta charset="UTF-8">
+				<link rel="stylesheet" href="./css/entry2.css">
+				<link rel="stylesheet" href="./css/entry1.css">
 				<title>ユーザー登録確認画面</title>
 			</head>
-			<body>
-				<h3>入力したデータを表示します</h3>
-
-				<table class = "hyo" border = "1">
+			<body class="entry-inputcheck">
+				<h2>入力したデータを表示します</h2>
+				<table id = "shop" border = "1">
 					<tr>
 						<td class = "tblcolor">店名</td>
 						<td><?= $shop_name ?></td>
 					</tr>
-
 					<tr>
 						<td class = "tblcolor">ユーザーID</td>
 						<td><?= $user_ID ?></td>
 					</tr>
-
 					<tr>
 						<td class = "tblcolor">パスワード</td>
-						<td><?= $pass ?></td>
+						<td id="cnfpass"><?= str_repeat("●", strlen($pass)); ?></td>
 					</tr>
 				</table>
-
-					入力内容をご確認いただき、問題なければ「登録」ボタンを押してください<br>
-					「戻る」ボタンを押すと登録画面に戻ります<br>
+					<p>入力内容をご確認いただき、問題なければ「登録」ボタンを押してください<br>
+					「戻る」ボタンを押すと登録画面に戻ります</p><br>
 					<div style = "display:inline-flex">
 						<form action = "entry3.php" method = "POST">
 							<input type = "hidden" name = "shop_name" value = "<?= $shop_name ?>">
 							<input type = "hidden" name = "user_ID" value = "<?= $user_ID ?>">
 							<input type = "hidden" name = "pass" value = "<?= $pass ?>">
-							<input type = "submit" value = "登録">&nbsp;&nbsp;
+							<input type = "submit" value = "登録" class="btn" id="confilm">
 						</form>
 						<form action = "entry1.php" method = "POST">
 						<input type = "hidden" name = "shop_name" value = "<?= $shop_name ?>">
 							<input type = "hidden" name = "user_ID" value = "<?= $user_ID ?>">
 							<input type = "hidden" name = "pass" value = "<?= $pass ?>">
-							<input type = "submit" value = "戻る">
+							<input type = "submit" value = "戻る" class="btn" >
 						</form>
 					</div>
 			</body>

@@ -1,0 +1,22 @@
+*{
+  text-align: center;
+  vertical-align: middle;
+}
+#shop{
+  font-style: 36px;
+  font-weight: bold;
+}
+#alert{
+  color: red;
+  font-size: 24px;
+}
+.tblcolor{
+ background-color: lawngreen; 
+}
+#btn{
+  width: 20%;
+  height: 20%;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 6px;
+}

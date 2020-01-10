@@ -21,14 +21,16 @@
 			<td class="tblcolor">ユーザID</td>
 			<td><input type="text" name="user_ID" required maxlength="20" pattern="^[0-9-Za-z]+$" autocomplete="off" id="input">
 			<span id="alert">*必須</span>
-			<span id="warm">上限20文字まで</span>
-			</td>
+			<span id="warm">上限20文字</span>
+			<span id="warm">半角英数字</span>
+		</td>
 		</tr>
 		<tr>
 			<td class="tblcolor">パスワード</td>
 			<td><input type="password" name="pass" required minlength="8" pattern="^[0-9-Za-z]+$" autocomplete="off" id="inputpass">
 			<span id="alert">*必須</span>
-			<span id="warm">最低8文字以上</span>
+			<span id="warm">上限20文字</span>
+			<span id="warm">半角英数字</span>
 			<br>
 			<div id="footer-password">
 				<input type="checkbox" id="show-password">
@@ -38,10 +40,9 @@
 		</tr>
 		</table>
 		<br>
-		<h1>必要事項を記入し「確認」ボタンを<br>クリックしてください。</h1>
-		<input type ="submit" value = "確認" id="btn">
-		&nbsp;&nbsp;
-		<input type ="reset" value = "クリア" id="btn">
+		<h3>必要事項を記入し「確認」ボタンを<br>クリックしてください。</h3>
+		<input type ="submit" value = "確認" class="btn" id="confilm">
+		<input type ="reset" value = "クリア" class="btn">
 	</form>
 	
 	<script src="./hideShowPassword.min.js"></script>
